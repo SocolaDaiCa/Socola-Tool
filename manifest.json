@@ -18,26 +18,32 @@
 		"contextMenus",
 		"http://*/*",
 		"https://*/*"
-	],
+	]/*,
 	"background":
 	{
 		"scripts": [
-            "js/jquery.min.js",
+			"js/jquery.min.js",
 			"js/script.js",
 			"js/socola-death-click.js"
 		]
-	},
+	}*/,
 	"content_scripts": [
 	{
 		"matches": ["http://auth3.s-wifi.vn/*"],
-		"js": ["js/jquery.min.js", "js/auto-connect-free-s-wifi.js"]
+		"js": [
+			"js/socola-function.js",
+			"js/auto-connect-free-s-wifi.js"
+		]
 	},
 	{
 		"matches": ["http://online.khoapham.vn/*"],
-		"js": ["js/jquery.min.js", "js/remove-share-khoa-phan.js"]
+		"js": [
+			"js/socola-function.js",
+			"js/remove-share-khoa-phan.js"
+		]
 	}]
 }
-// ,
+// ,"js/socola-function.js",
 //     "content_scripts": [
 //     {http://auth3.s-wifi.vn/*
 //         "matches": ["https://*/*"],

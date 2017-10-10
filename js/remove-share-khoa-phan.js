@@ -6,7 +6,5 @@ var scriptRemoveShareKhoaPham = `
     }
 `;
 window.onload = function() {
-    var scriptTag = document.createElement("script");
-    scriptTag.innerHTML = scriptRemoveShareKhoaPham;
-    document.head.appendChild(scriptTag);
+    addScript(scriptRemoveShareKhoaPham);
 };
