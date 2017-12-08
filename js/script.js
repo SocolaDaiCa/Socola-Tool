@@ -105,9 +105,9 @@
 // });
 
 chrome.contextMenus.create({
-    title: "Mở note.tentstudy.xyz",
-    contexts: ["all"],
-    onclick: openNote,
+  title: "Mở note.tentstudy.xyz",
+  contexts: ["all"],
+  onclick: openNote
 });
 
 // chrome.contextMenus.create({

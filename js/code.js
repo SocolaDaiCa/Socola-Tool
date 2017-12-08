@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 const code = {
-	getTokenIOS: `
+  getTokenIOS: `
 		var uid = document.cookie.match(/c_user=(\\d+)/)[1];
 		dtsg = document.getElementsByName("fb_dtsg")[0].value;
 		http = new XMLHttpRequest();
@@ -17,11 +17,11 @@ const code = {
 		};
 		http.send(params);
 	`,
-	getTokenAndroid: `
+  getTokenAndroid: `
 		var access_token = /access_token:"(.+?)"/.exec(document.body.innerHTML)[1];
 		prompt("access_token", access_token);
 	`,
-	getUserID: `
+  getUserID: `
 		var userID = /data-referrerid="(.+?)"/.exec(document.body.innerHTML)[1];
 		prompt("UserID", userID);
 	`
