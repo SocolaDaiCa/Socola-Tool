@@ -1,73 +1,90 @@
 {
-    "manifest_version": 2,
-    "name": "Socola Tool",
-    "version": "1.0",
-    "description": "Code by Socola Đại Ca",
-    "browser_action":
-    {
-        "default_icon": "images/favicon-32x32.png",
-        "default_popup": "html/popup.html"
-    },
-    "options_page": "html/popup.html",
-    "options_ui":
-    {
-    //     // Required.
-        "page": "html/popup.html"
-    //     // Recommended.
-    //     "chrome_style": true,
-    //     // Not recommended; only provided for backwards compatibility,
-    //     // and will be unsupported in a future version of Chrome (TBD).
-    //     "open_in_tab": true
-    },
-    /*cho phép chạy các script bên ngoài bất chấp nguy hiểm*/
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-    "icons":
-    {
-        "16": "images/favicon-32x32.png",
-        "32": "images/favicon-32x32.png",
-        "128": "images/favicon-32x32.png"
-    },
-    "permissions": [
-        "tabs",
-        "contextMenus",
-        "http://*/*",
-        "https://*/*"
-    ],
-    /*script cho mọi trang web*/
-    "background":
-    {
-        "scripts": [
-            "js/background.js"
-            // "js/code.js"
-        ]
-    },
-    /*scrip cho từng trang web*/
-    "content_scripts": [
-    {
-        "matches": ["<all_urls>"],
-        "js": [
-            "vendor/jquery/jquery.min.js",
-            "js/Socola-tool.js"
-        ]
-    },
-    {
-        "matches": ["http://auth3.s-wifi.vn/*"],
-        "js": ["js/auto-connect-free-s-wifi.js"]
-    },
-    {
-        "matches": ["https://*.facebook.com/*"],
-        "js": ["js/facebook-tool.js"]
-    },
-    {
-        "matches": ["*://online.khoapham.vn/*"],
-        "js": [
-            "js/remove-share-khoa-phan.js"
-        ]
-    }]
+	"manifest_version": 2,
+	"name": "Socola Tool",
+	"author": "Socola Đại Ca",
+	"version": "1.0",
+	"homepage_url": "https://fb.me/SocolaDaiCa1997",
+	"description": "Code by Socola Đại Ca",
+	"default_locale": "vi",
+	"browser_action":
+	{
+		"default_icon": "images/favicon-32x32.png",
+		"default_popup": "option.html",
+		"default_title": "Socola Tool 1.0"
+	},
+	"icons":
+	{
+		"16": "images/favicon-32x32.png",
+		"32": "images/favicon-32x32.png",
+		"128": "images/favicon-32x32.png"
+	},
+	"options_page": "option.html",
+	/*cho phép chạy các script bên ngoài bất chấp nguy hiểm  */
+	"content_security_policy": "script-src 'self' 'unsafe-eval' http://localhost:35729/livereload.js; object-src 'self'",
+	"permissions": [
+		"tabs",
+		"storage",
+		"contextMenus",
+		"http://*/*",
+		"https://*/*",
+		// "activeTab",
+		"<all_urls>",
+		"cookies",
+		"notifications",
+		"storage",
+		"webRequest",
+		"webRequestBlocking"
+	],
+	"background": /*script chạy nền*/
+	{
+		"scripts": [
+			"js/background.js"
+		]
+	},
+	"content_scripts": [
+	{
+		"matches": ["<all_urls>"],
+		"run_at": "document_start",
+		// "css": [],
+		"js": [
+			"js/Socola-tool.js",
+			"js/edit-css-tool.js"
+		]
+	},
+	{
+		"matches": ["http://auth3.s-wifi.vn/*"],
+		"js": ["js/auto-connect-free-s-wifi.js"]
+	},
+	{
+		"matches": ["https://*.facebook.com/*"],
+		"js": ["js/facebook-tool.js"]
+	},
+	{
+		"matches": ["*://*.khoapham.vn/*"],
+		"js": ["js/remove-share-khoa-phan.js"]
+	}],
+	"web_accessible_resources": [
+		"js/*",
+		"<all_urls>"
+		// "http://localhost:35729/livereload.js?snipver=1"
+	]/*,
+	"options_ui":
+	{
+		"page": "edit-css.html",
+		"open_in_tab": true
+	}*/
 }
-// ,"js/socola-function.js",
-//     "content_scripts": [
-//     {http://auth3.s-wifi.vn/*
-//         "matches": ["https://*/*"],
-//         "js": ["js/content-script.js"]
-//     }]
+/*
+	
+	{
+	//     // Required.
+		
+	//     // Recommended.
+	//     "chrome_style": true,
+	//     // Not recommended; only provided for backwards compatibility,
+	//     // and will be unsupported in a future version of Chrome (TBD).
+	//     
+	},
+	
+	scrip cho từng trang web
+*/

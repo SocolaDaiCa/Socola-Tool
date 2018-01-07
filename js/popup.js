@@ -1,36 +1,27 @@
 'use strict';
 $(function() {
-    // get token ios
-    $("#get-token-ios").click(function() {
-        tool.runScriptCode(code.getTokenIOS);
+    $(".list-group > a").each(function(item) {
+       $(this).addClass("list-group-item");
     });
-    // get token android
-    $("#get-token-android").click(function() {
-        tool.runScriptCode(code.getTokenAndroid);
+    $("a:not([href])").each(function(item) {
+       $(this).attr("href", "#"); 
     });
-    $("#get-userid").click(function() {
-        tool.runScriptCode(code.getUserID);
+    chrome.storage.sync.get(null, function(res) {
+        app.config = res;
     });
 });
 
 var app = new Vue({
     el: "#app",
-    data: {
-		x: 0
+    data:{
+        config: {}
     },
     methods: {
-
+        getLinkFshare: function() {
+            tool.runScriptCode(code.getLinkFshare);
+        },
+        getLinkJavHD: function() {
+            tool.runScriptCode(code.getLinkJavHD);
+        }
     },
 });
-
-chrome.storage.sync.set({
-    // dtsg: document.getElementsByName("fb_dtsg")[0].value
-    x: 1
-}, function() {});
-chrome.storage.sync.get({x: 1}, function(item) {
-    // console.log(item);
-    // app.x = item.x;
-});
-$(function() {
-	$("*").css("background", "black");
-})

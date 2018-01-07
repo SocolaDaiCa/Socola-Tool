@@ -1,0 +1,32 @@
+body {
+	/*background: blue;*/
+}
+
+#app {
+	background: #e9ebee;
+	width: 500px;
+}
+
+.list-group h1 {
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+}
+
+.block {
+	display: block;
+}
+
+.input-group-addon [class~="label"] {
+	border-radius: 3px;
+}
+
+.reset {
+	border: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.reset+* {
+	border-top: none;
+}

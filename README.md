@@ -5,4 +5,4 @@ Extension viết bởi Socola
 - Get Token Android.
 - Get UserID.
 - Loại bỏ yêu cầu share để xem video trên http://online.khoapham.vn.
-- Tự động nhấn quảng cáo để kết nối internet Free Swifi.
+- Tự động nhấn quảng cáo để kết nối internet Free Swifi (UTC).
