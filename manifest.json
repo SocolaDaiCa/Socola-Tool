@@ -19,15 +19,15 @@
 		"128": "images/favicon-32x32.png"
 	},
 	"options_page": "option.html",
-	/*cho phép chạy các script bên ngoài bất chấp nguy hiểm  */
-	"content_security_policy": "script-src 'self' 'unsafe-eval' http://localhost:35729/livereload.js; object-src 'self'",
+	/*cho phép chạy các script bên ngoài bất chấp nguy hiểm  'http://localhost:35729/livereload.js' 'self' */
+	"content_security_policy": "script-src 'unsafe-eval' 'https://code.jquery.com/jquery.js'; object-src 'self'",
 	"permissions": [
 		"tabs",
 		"storage",
 		"contextMenus",
 		"http://*/*",
 		"https://*/*",
-		// "activeTab",
+		"activeTab",
 		"<all_urls>",
 		"cookies",
 		"notifications",
@@ -38,7 +38,10 @@
 	"background": /*script chạy nền*/
 	{
 		"scripts": [
-			"js/background.js"
+			"js/code.js",
+			"vendor/axios/axios.min.js",
+			"js/background.js",
+			"js/Socola-tool.js"
 		]
 	},
 	"content_scripts": [
@@ -47,6 +50,7 @@
 		"run_at": "document_start",
 		// "css": [],
 		"js": [
+			"vendor/axios/axios.min.js",
 			"js/Socola-tool.js",
 			"js/edit-css-tool.js"
 		]

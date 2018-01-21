@@ -1,10 +1,9 @@
-body {
-	/*background: blue;*/
+body{
+	/*width: 400px;*/
 }
-
 #app {
 	background: #e9ebee;
-	width: 500px;
+	width: 400px;
 }
 
 .list-group h1 {
@@ -13,13 +12,13 @@ body {
 	text-align: center;
 }
 
-.block {
+/*.block {
 	display: block;
-}
+}*/
 
-.input-group-addon [class~="label"] {
+/*.input-group-addon [class~="label"] {
 	border-radius: 3px;
-}
+}*/
 
 .reset {
 	border: none;

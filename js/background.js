@@ -118,5 +118,84 @@ chrome.storage.sync.get({ fb: { blockSeen: false } }, function({ fb }) {
 			]
 		}, ["blocking"]);
 	}
-	
+
 });
+
+
+function getAccessToken(request, sender, sendResponse) {
+	// axios.get('https://mbasic.facebook.com').then(function(res) {
+	// 	var fb_dtsg = res.data.split('name="fb_dtsg" value="')[1] || '';
+	// 	fb_dtsg = fb_dtsg.split('"')[0] || '';
+	// 	var user_id = res.data.split('ame="target" value="')[1] || '';
+	// 	user_id = user_id.split('"')[0] || '';
+	// 	var http = new XMLHttpRequest();
+	// 	var url = "https://www.facebook.com/v1.0/dialog/oauth/confirm";
+	// 	var params = `fb_dtsg=${fb_dtsg}&app_id=165907476854626&redirect_uri=fbconnect://success&display=page&access_token=&from_post=1&return_format=access_token&domain=&sso_device=ios&__CONFIRM__=1&__user=${user_id}`;
+	// 	http.open("POST", url, !0);
+	// 	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	// 	http.onreadystatechange = () => {
+	// 		if (4 == http.readyState && 200 == http.status) {
+	// 			var a = http.responseText;
+	// 			// var a = http.responseText.match(/access_token=(.*)(?=&expires_in)/);
+	// 			// a = a ? a[1] : "Failed to get Access token make sure you authorized the HTC sense app";
+	// 			chrome.tabs.sendMessage(sender.tab.id, {
+	// 				cmd: "access_token_callback",
+	// 				data: {
+	// 					a
+	// 				}
+	// 			});
+	// 		}
+	// 	};
+	// 	http.send(params);
+	// }).catch(function(err) {
+	// 	chrome.tabs.sendMessage(sender.tab.id, {
+	// 		cmd: "access_token_callbackx",
+	// 		data: JSON.stringify(err)
+	// 	});
+	// });
+}
+// chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+// 	switch (request.cmd) {
+// 		case 'get_access_token':
+// 			return getAccessToken(request, sender, sendResponse);
+// 	}
+// 	// 	case 'ban-user':
+// 	// axios.get('https://mbasic.facebook.com').then(function(res) {
+// 	// 	sendResponse({ farewell: "goodbye" });
+// 	// }).catch(function(err) {
+// 	// 	sendResponse({ farewell: "false" });
+// 	// });
+// 	// chrome.tabs.sendMessage(sender.tab.id, {
+// 	// 	cmd: "access_token_callback",
+// 	// 	data: 'sss'
+// 	// });
+// 	// sendResponse({ farewell: "false" });
+// 	// 	default:
+// 	// }
+// 	// console.log(sender.tab ?
+// 	// 	"from a content script:" + sender.tab.url :
+// 	// 	"from the extension");
+// 	// if (request.greeting == "hello")
+// 	// 	
+// });
+// !function(e) {
+// 	e.webRequest.onBeforeSendHeaders.addListener(function(e) {
+// 	if (c) {
+// 		for (var t = 0, o = "https://" + new URL(e.url).hostname, n = 0, r = e.requestHeaders.length; n < r; ++n) {
+// 			var s = e.requestHeaders[n].name.toLowerCase();
+// 			if ("referer" === s && (t = 1), "origin" === s || "referer" === s) {
+// 				e.requestHeaders[n].value = o;
+// 				break;
+// 			}
+// 		}
+// 		return 0 === t && e.requestHeaders.push({
+// 			name: "Referer",
+// 			value: o
+// 		}), {
+// 			requestHeaders: e.requestHeaders
+// 		}
+// 	}
+// }, {
+// 	urls: ["https://*.facebook.com/ajax/groups/members/remove.php*", "https://*.facebook.com/*/dialog/oauth/confirm*", "https://*.facebook.com/ufi/add/comment/*"]
+// }, ["blocking", "requestHeaders"]);
+// }(chrome);

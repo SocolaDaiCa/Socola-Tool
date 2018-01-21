@@ -2,7 +2,7 @@
 const app = new Vue({
 	el: '#app',
 	data: {
-		token: '',
+		token: "",
 		groups: [],
 		label1: {
 			class: 'label label-warning',
@@ -10,11 +10,6 @@ const app = new Vue({
 		}
 	},
 	methods: {
-		saveToken: function() {
-			chrome.storage.sync.set({ token: this.token });
-			console.log('save token success');
-			this.checkTokenLive();
-		},
 		getToken: function() {
 			tool.runScriptCode(code.getTokenIOS);
 			// axios.get('https://mbasic.facebook.com')
@@ -40,7 +35,12 @@ const app = new Vue({
 				}).catch(() => toastr.error('Lỗi gì ý'));
 		},
 		checkTokenLive: function() {
-			if (!this.token || this.token =="") {
+			// if (!navigator.onLine) {
+			// 	this.label1.class = 'label label-warning';
+			// 	this.label1.text = 'not internet';
+			// 	return;
+			// }
+			if (!this.token || this.token == "") {
 				this.label1.class = 'label label-warning';
 				this.label1.text = 'Empty';
 				return;
@@ -48,13 +48,18 @@ const app = new Vue({
 			axios.get(`https://graph.facebook.com/me?access_token=${this.token}`).then((res) => {
 				this.label1.class = 'label label-success';
 				this.label1.text = 'Live';
-			}).catch(() => {
+			}).catch((error) => {
+				console.log(error);
 				this.label1.class = 'label label-danger';
 				this.label1.text = 'Die';
 			});
+		},
+		send: function() {
+			chrome.runtime.sendMessage({ cmd: 'get_access_token' });
 		}
 	},
 	created: function() {
+		this.send();
 		chrome.storage.sync.get({
 			token: '',
 			groups: []
@@ -63,8 +68,18 @@ const app = new Vue({
 			this.groups = groups;
 			this.checkTokenLive();
 		});
+	},
+	computed: {
+		saveToken: function() {
+			chrome.storage.sync.set({ token: this.token }, () => {
+				this.checkTokenLive();
+			});
+		}
 	}
 });
+// chrome.runtime.onMessage.addListener(function(o, n, r) {
+// 	console.log(o);
+// });
 // chrome.runtime.onMessage.addListener(function(o, n, r) {
 // 	// if(o.cmd !== 'access_token_callback') return;
 // 	// app.token = o.data.token;

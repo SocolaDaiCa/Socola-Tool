@@ -22,8 +22,12 @@ getTokenAndroid: `
 	prompt("access_token", access_token);
 `,
 getUserID: `
-	var userID = /data-referrerid="(.+?)"/.exec(document.body.innerHTML)[1];
-	prompt("UserID", userID);
+	// var userID = /data-referrerid="(.+?)"/.exec(document.body.innerHTML)[1];
+	var userID = /data-profileid="(.+?)"/.exec(document.body.innerHTML)[1];
+	// var userID = document.head.innerHTML;
+	// userID = userID.split('"entity_id":"')[1] || '';
+	// userID = userID.split('"')[0] || '';
+	prompt("UserID", userID || 'Lỗi rồi');
 `,
 getLinkFshare: `
 	var link = window.location.href;

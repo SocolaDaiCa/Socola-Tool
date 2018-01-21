@@ -5,9 +5,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Socola Tool</title>
 		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="vendor/toastrjs/toastr.min.css">
-		<link rel="stylesheet" href="css/option.css">
-		<!-- 		<meta http-equiv="Content-Security-Policy" content="default-src 'self' gap:; script-src 'self' data: http://localhost:35729/livereload.js 'unsafe-eval'; object-src *; style-src 'self' data: 'unsafe-inline'; img-src 'self' data:; media-src 'self' data:; font-src 'self' data:; connect-src *"> -->
+		<!-- <link rel="stylesheet" type="text/css" href="vendor/toastrjs/toastr.min.css"> -->
+		<link rel="stylesheet" type="text/css" href="css/option.css">
 	</head>
 	<body>
 		<div id="app">
@@ -15,43 +14,26 @@
 				<div class="list-group-item">
 					<h1>Socola Tools</h1>
 				</div>
-				<div class="list-group-item reset">
-					<div class="input-group">
-						<div class="input-group-addon">
-							Token <span :class="label1.class">{{label1.text}}</span>
-						</div>
-						<input type="text" class="form-control" placeholder="Token" v-model="token" @change="saveToken">
-						<span class="input-group-btn">
-							<a :href="'https://developers.facebook.com/tools/debug/accesstoken/?q=' + token" title="" class="btn btn-default" target="_blank">Debug</a>
-						</span>
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" @click="getToken">Get Token!</button>
-						</span>
+			</div>
+			<div class="list-group-item reset">
+				<div class="input-group">
+					<div class="input-group-addon">
+						Token <span :class="label1.class">{{label1.text}}</span>
 					</div>
+					<input type="text" class="form-control" placeholder="Token" v-model="token" v-on:change="saveToken">
+					<!-- @change="saveToken" -->
+					<span class="input-group-btn">
+						<a :href="'https://developers.facebook.com/tools/debug/accesstoken/?q=' + token" title="" class="btn btn-default" target="_blank">Debug</a>
+					</span>
 				</div>
-				<a href="#" @click="getToken" class="list-group-item">Get Token</a>
-				<a href="#" @click="getUserID" class="list-group-item">Get UserID</a>
 			</div>
+			<a href="#" v-on:click="getToken" class="list-group-item">Get Token</a>
+			<a href="#" v-on:click="getUserID" class="list-group-item">Get UserID</a>
 		</div>
-<!-- 		<div class="container">
-			
-			
-			<div class="row">
-				<div class="form-group">
-					<button type="button" class="btn btn-primary" @click="updateGroups">Cập nhật danh sách nhóm</button>
-					<ul>
-						<li v-for="group in groups">
-							<a :href="'https://fb.com/'+group.id" :title="group.name" target="_blank">{{group.name}}</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div> -->
-		<script src="vendor/axios/axios.min.js"></script>
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		<!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+		<!-- <script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
 		<script src="vendor/vue/vue.min.js"></script>
-		<script src="vendor/toastrjs/toastr.min.js"></script>
+		<script src="vendor/axios/axios.min.js"></script>
 		<script src="js/Socola-tool.js"></script>
 		<script src="js/code.js"></script>
 		<script src="js/option.js"></script>
