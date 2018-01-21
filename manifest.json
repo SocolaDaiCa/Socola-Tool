@@ -6,21 +6,20 @@
 	"homepage_url": "https://fb.me/SocolaDaiCa1997",
 	"description": "Code by Socola Đại Ca",
 	"default_locale": "vi",
-	"browser_action":
-	{
+	"browser_action": {
 		"default_icon": "images/favicon-32x32.png",
 		"default_popup": "option.html",
 		"default_title": "Socola Tool 1.0"
 	},
-	"icons":
-	{
+	"icons": {
 		"16": "images/favicon-32x32.png",
 		"32": "images/favicon-32x32.png",
 		"128": "images/favicon-32x32.png"
 	},
 	"options_page": "option.html",
 	/*cho phép chạy các script bên ngoài bất chấp nguy hiểm  'http://localhost:35729/livereload.js' 'self' */
-	"content_security_policy": "script-src 'unsafe-eval' 'https://code.jquery.com/jquery.js'; object-src 'self'",
+	"content_security_policy":
+		"script-src 'unsafe-eval' 'https://code.jquery.com/jquery.js'; object-src 'self'",
 	"permissions": [
 		"tabs",
 		"storage",
@@ -35,8 +34,8 @@
 		"webRequest",
 		"webRequestBlocking"
 	],
-	"background": /*script chạy nền*/
-	{
+	/*script chạy nền*/
+	"background": {
 		"scripts": [
 			"js/code.js",
 			"vendor/axios/axios.min.js",
@@ -45,40 +44,40 @@
 		]
 	},
 	"content_scripts": [
-	{
-		"matches": ["<all_urls>"],
-		"run_at": "document_start",
-		// "css": [],
-		"js": [
-			"vendor/axios/axios.min.js",
-			"js/Socola-tool.js",
-			"js/edit-css-tool.js"
-		]
-	},
-	{
-		"matches": ["http://auth3.s-wifi.vn/*"],
-		"js": ["js/auto-connect-free-s-wifi.js"]
-	},
-	{
-		"matches": ["https://*.facebook.com/*"],
-		"js": ["js/facebook-tool.js"]
-	},
-	{
-		"matches": ["*://*.khoapham.vn/*"],
-		"js": ["js/remove-share-khoa-phan.js"]
-	}],
+		{
+			"matches": ["<all_urls>"],
+			"run_at": "document_start",
+			// "css": [],
+			"js": [
+				"vendor/axios/axios.min.js",
+				"js/Socola-tool.js",
+				"js/edit-css-tool.js"
+			]
+		},
+		{
+			"matches": ["http://auth3.s-wifi.vn/*"],
+			"js": ["js/auto-connect-free-s-wifi.js"]
+		},
+		{
+			"matches": ["https://*.facebook.com/*"],
+			"js": ["js/facebook-tool.js"]
+		},
+		{
+			"matches": ["*://*.khoapham.vn/*"],
+			"js": ["js/remove-share-khoa-phan.js"]
+		}
+	],
 	"web_accessible_resources": [
 		"js/*",
 		"<all_urls>"
 		// "http://localhost:35729/livereload.js?snipver=1"
-	]/*,
+	] /*,
 	"options_ui":
 	{
 		"page": "edit-css.html",
 		"open_in_tab": true
 	}*/
-}
-/*
+	/*
 	
 	{
 	//     // Required.
@@ -92,3 +91,4 @@
 	
 	scrip cho từng trang web
 */
+}
