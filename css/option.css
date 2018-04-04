@@ -1,31 +1,31 @@
-body{
-	/*width: 400px;*/
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 19:58:09
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-08 21:45:01
+ */
+
+body {
+}
+h3{
+	padding-left: 10px;
 }
 #app {
-	background: #e9ebee;
-	width: 400px;
+	margin: auto;
+	width: 350px;
+	overflow: hidden;
+	background: #EEEAEA;
 }
 
-.list-group h1 {
-	padding: 0px;
-	margin: 0px;
-	text-align: center;
-}
-
-/*.block {
+#app .item{
+	color: black;
+	text-decoration: none;
+	padding: 10px;
 	display: block;
-}*/
-
-/*.input-group-addon [class~="label"] {
-	border-radius: 3px;
-}*/
-
-.reset {
-	border: none;
-	padding: 0px;
 	margin: 0px;
 }
 
-.reset+* {
-	border-top: none;
+#app .item:hover {
+	background: #ffffff;
 }

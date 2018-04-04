@@ -1,90 +1,66 @@
+/*
+ * @Author: Socola
+ * @Date:   2018-02-01 19:58:09
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-04-05 05:29:24
+ */
 'use strict';
+var data = {
+	changeTabDefault: true,
+	token: {
+		status: 'pending',
+		class: '',
+		value: ''
+	}
+};
 const app = new Vue({
 	el: '#app',
-	data: {
-		token: "",
-		groups: [],
-		label1: {
-			class: 'label label-warning',
-			text: 'pending'
-		}
-	},
+	data,
 	methods: {
 		getToken: function() {
 			tool.runScriptCode(code.getTokenIOS);
-			// axios.get('https://mbasic.facebook.com')
-			// .then(function({data}) {
-			// 	var fb_dtsg, c_user;
-			// 	fb_dtsg = data.split('name="fb_dtsg" value="')[1] || '';
-			// 	fb_dtsg = fb_dtsg.split('"')[0] || '';
-			// 	c_user = data.match(/<input type="hidden" name="target" value="(\d+)"/i)[1] || '';
-			// 	console.log(`${fb_dtsg} ${c_user}`);
-			// 	var token = tool.getToken(fb_dtsg, c_user);
-			// });
 		},
 		getUserID: function() {
 			tool.runScriptCode(code.getUserID);
 		},
-		updateGroups: function() {
-			axios.get(`https://graph.facebook.com/v2.11/me?fields=groups.limit(1000){name,administrator}&access_token=${this.token}`)
-				.then((res) => {
-					var groups = res.data.groups.data;
-					this.groups = groups.filter(group => group.administrator);
-					chrome.storage.sync.set({ groups: this.groups });
-					toastr.success('Cập nhật danh sách nhóm hoàn tất');
-				}).catch(() => toastr.error('Lỗi gì ý'));
-		},
 		checkTokenLive: function() {
-			// if (!navigator.onLine) {
-			// 	this.label1.class = 'label label-warning';
-			// 	this.label1.text = 'not internet';
-			// 	return;
-			// }
-			if (!this.token || this.token == "") {
-				this.label1.class = 'label label-warning';
-				this.label1.text = 'Empty';
+			if (!this.token.value || this.token.value === "") {
+				this.token.class = 'has-danger';
+				this.token.status = 'Empty';
+				console.log('empty token');
 				return;
 			}
-			axios.get(`https://graph.facebook.com/me?access_token=${this.token}`).then((res) => {
-				this.label1.class = 'label label-success';
-				this.label1.text = 'Live';
-			}).catch((error) => {
-				console.log(error);
-				this.label1.class = 'label label-danger';
-				this.label1.text = 'Die';
-			});
+			// axios.get(`https://graph.facebook.com/me?access_token=${this.token}`).then((res) => {
+			// 	this.label1.class = 'label label-success';
+			// 	this.label1.text = 'Live';
+			// }).catch((error) => {
+			// 	console.log(error);
+			// 	this.label1.class = 'label label-danger';
+			// 	this.label1.text = 'Die';
+			// });
 		},
-		send: function() {
-			chrome.runtime.sendMessage({ cmd: 'get_access_token' });
+	},
+	computed: {
+		saveConfig: function() {
+			// if (this.changeTabDefault) {
+			// 	console.log('true');
+			// } else {
+			this.changeTabDefault;
+				console.log('x');
+			// }
+			// }
 		}
 	},
 	created: function() {
-		this.send();
-		chrome.storage.sync.get({
-			token: '',
-			groups: []
-		}, ({ token, groups }) => {
-			this.token = token;
-			this.groups = groups;
-			this.checkTokenLive();
-		});
-	},
-	computed: {
-		saveToken: function() {
-			chrome.storage.sync.set({ token: this.token }, () => {
-				this.checkTokenLive();
-			});
-		}
+		// this.token.class = 'has-danger';
+		// this.send();
+		// chrome.storage.sync.get({
+		// 	token: '',
+		// 	groups: []
+		// }, ({ token, groups }) => {
+		// 	this.token.value = token;
+		// 	this.groups = groups;
+		this.checkTokenLive();
+		// });
 	}
 });
-// chrome.runtime.onMessage.addListener(function(o, n, r) {
-// 	console.log(o);
-// });
-// chrome.runtime.onMessage.addListener(function(o, n, r) {
-// 	// if(o.cmd !== 'access_token_callback') return;
-// 	// app.token = o.data.token;
-// 	// toastr.success('ahihi');
-// 	console.log(o);
-// 	console.log(n);
-// 	console.log(r);
-// })

@@ -1,15 +1,10 @@
+/*
+ * @Author: Socola
+ * @Date:   2018-02-01 19:58:09
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-02-15 11:14:49
+ */
 'use strict';
-/* open tab when install or update*/
-chrome.runtime.onInstalled.addListener((details) => {
-	// return null;
-	switch (details.reason) {
-		case 'install':
-			return chrome.tabs.create({ url: 'welcome.html' });
-		case 'update':
-			return chrome.tabs.create({ url: 'option.html' });
-	}
-});
-
 /* Death Click*/
 ! function(chrome) {
 	var SocolaTool = chrome.contextMenus.create({

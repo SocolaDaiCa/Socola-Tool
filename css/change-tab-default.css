@@ -1,0 +1,35 @@
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-15 11:32:56
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-02-18 06:58:53
+ */
+
+.image {
+	position: relative;
+	width: 100%;
+}
+
+#bg-image-girl {
+	position: fixed;
+	z-index: -1;
+	top: -5%;
+	left: -5%;
+	width: 110%;
+	height: 110%;
+	filter:blur(10px);
+	opacity: 0.95;
+}
+
+#image-girl {
+	max-width: 100vw;
+	max-height: 100vh;
+	box-shadow: 0 0 30px black;
+}
+
+#action {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Socola World</title>
+	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/change-tab-default.css">
+	<script src="../vendor/vue/vue.min.js"></script>
+</head>
+
+<body>
+	<div class="image" id="app">
+		<img :src="image + '?v=' + i" id="bg-image-girl">
+		<img :src="image + '?v=' + i" class="center-block" id="image-girl" alt="">
+		<div id="action">
+			<button type="button" class="btn btn-default" v-on:click="deleteImage">Delete</button>
+			<button type="button" class="btn btn-default" v-on:click="loadImage">Next</button>
+		</div>
+	</div>
+	<script src="../vendor/jquery/jquery.min.js"></script>
+	<script src="../js/pages/change-tab-default.js"></script>
+</body>
+
+</html>

@@ -5,7 +5,7 @@
 	"version": "1.0",
 	"homepage_url": "https://fb.me/SocolaDaiCa1997",
 	"description": "Code by Socola Đại Ca",
-	"default_locale": "vi",
+	// "default_locale": "vi",
 	"browser_action":
 	{
 		"default_icon": "images/favicon-32x32.png",
@@ -18,77 +18,52 @@
 		"32": "images/favicon-32x32.png",
 		"128": "images/favicon-32x32.png"
 	},
-	"options_page": "option.html",
-	/*cho phép chạy các script bên ngoài bất chấp nguy hiểm  'http://localhost:35729/livereload.js' 'self' */
-	"content_security_policy": "script-src 'unsafe-eval' 'https://code.jquery.com/jquery.js'; object-src 'self'",
 	"permissions": [
+		"activeTab",
 		"tabs",
 		"storage",
+		"cookies",
 		"contextMenus",
 		"http://*/*",
 		"https://*/*",
-		"activeTab",
 		"<all_urls>",
-		"cookies",
 		"notifications",
-		"storage",
 		"webRequest",
 		"webRequestBlocking"
 	],
-	"background": /*script chạy nền*/
+	"background":
 	{
 		"scripts": [
-			"js/code.js",
-			"vendor/axios/axios.min.js",
-			"js/background.js",
-			"js/Socola-tool.js"
+			"js/background/install-or-update.js",
+			"js/background/change-tab-default.js",
+			// "js/code.js",
+			// "vendor/axios/axios.min.js",
+			"js/background.js"
+			// "js/Socola-tool.js",
 		]
 	},
 	"content_scripts": [
 	{
 		"matches": ["<all_urls>"],
-		"run_at": "document_start",
-		// "css": [],
 		"js": [
-			"vendor/axios/axios.min.js",
-			"js/Socola-tool.js",
-			"js/edit-css-tool.js"
+			"vendor/jquery/jquery.min.js",
+			"js/background/diem-danh.js"
 		]
 	},
 	{
 		"matches": ["http://auth3.s-wifi.vn/*"],
-		"js": ["js/auto-connect-free-s-wifi.js"]
-	},
-	{
-		"matches": ["https://*.facebook.com/*"],
-		"js": ["js/facebook-tool.js"]
+		"js": ["js/background/auto-connect-free-s-wifi.js"]
 	},
 	{
 		"matches": ["*://*.khoapham.vn/*"],
-		"js": ["js/remove-share-khoa-phan.js"]
+		"js": ["js/background/remove-share-khoa-phan.js"]
 	}],
-	"web_accessible_resources": [
-		"js/*",
-		"<all_urls>"
-		// "http://localhost:35729/livereload.js?snipver=1"
-	]/*,
-	"options_ui":
+	"chrome_url_overrides":
 	{
-		"page": "edit-css.html",
-		"open_in_tab": true
-	}*/
-}
-/*
-	
-	{
-	//     // Required.
-		
-	//     // Recommended.
-	//     "chrome_style": true,
-	//     // Not recommended; only provided for backwards compatibility,
-	//     // and will be unsupported in a future version of Chrome (TBD).
-	//     
+		"newtab": "html/change-tab-default.html"
 	},
-	
-	scrip cho từng trang web
-*/
+	/*cho phép chạy các script bên ngoài bất chấp nguy hiểm      'https://code.jquery.com/jquery.js'  */
+	// "content_security_policy": "script-src 'self' 'unsafe-eval' 'http://localhost:35729/livereload.js'; object-src 'self'"
+	// "content_security_policy": "style-src 'self' data: chrome-extension-resource: 'unsafe-inline';"
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
