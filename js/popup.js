@@ -2,7 +2,7 @@
  * @Author: Socola
  * @Date:   2018-02-01 19:58:09
  * @Last Modified by:   Socola
- * @Last Modified time: 2018-04-09 15:00:49
+ * @Last Modified time: 2018-04-15 15:02:52
  */
 'use strict';
 // $(function() {
@@ -37,6 +37,9 @@ var app = new Vue({
 		},
 		getLinkJavHD: function() {
 			chrome.tabs.executeScript({ file: "js/script/get-link-javhd.js" });
+		},
+		downloadPdfGoogleDrive: function() {
+			chrome.tabs.executeScript({ file: "js/script/down-load-pdf-google-drive.js"})
 		}
 	},
 });

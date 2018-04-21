@@ -3,12 +3,17 @@
  * @Email: TokenTien@gmail.com
  * @Date:   2018-02-15 11:32:56
  * @Last Modified by:   Socola
- * @Last Modified time: 2018-02-18 06:58:53
+ * @Last Modified time: 2018-04-19 14:44:39
  */
-
-.image {
+#app{
 	position: relative;
-	width: 100%;
+}
+.image {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 }
 
 #bg-image-girl {
@@ -32,4 +37,14 @@
 	position: fixed;
 	bottom: 0px;
 	right: 0px;
+}
+/* kipalog */
+#kipalog{
+	background: white;
+	opacity: 0.6;
+}
+#kipalog ul{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
 }
