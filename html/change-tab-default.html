@@ -8,13 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/change-tab-default.css">
 	<script src="../vendor/vue/vue.min.js"></script>
+	<script src="../vendor/axios/axios.min.js"></script>
 </head>
 
 <body>
 	<div id="app">
 		<div class="image">
-			<img :src="image + '?v=' + i" id="bg-image-girl">
-			<img :src="image + '?v=' + i" class="center-block" id="image-girl" alt="">
+			<img :src="image" id="bg-image-girl">
+			<img :src="image" class="center-block" id="image-girl" alt="">
 			<div id="action">
 				<button type="button" class="btn btn-default" v-on:click="deleteImage">Delete</button>
 				<button type="button" class="btn btn-default" v-on:click="loadImage">Next</button>
@@ -23,6 +24,7 @@
 		<div class="container-fluid clearfix">
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="kipalog">
 				<h2>Kipalog</h2>
+
 				<ul>
 					<li v-for="item in kipalog.items">
 						<b><a :href="item.link" :title="item.title">{{item.title}}</a></b><br>
@@ -32,9 +34,20 @@
 					</li>
 				</ul>
 			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="kipalog">
+				<h2>Viblo</h2>
+
+				<ul>
+					<li v-for="item in viblo">
+						<b><a :href="item.link" :title="item.title">{{item.title}}</a></b><br>
+						<tempalate v-html="item.description"></tempalate><br>
+						{{item.author}}
+						<br>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
-	<script src="../vendor/jquery/jquery.min.js"></script>
 	<script src="../js/pages/change-tab-default.js"></script>
 </body>
 

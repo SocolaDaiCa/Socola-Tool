@@ -7,3 +7,6 @@ Sản phẩm trong quá trình học VueJS
 - Loại bỏ yêu cầu share để xem video trên http://online.khoapham.vn.
 - Tự động nhấn quảng cáo để kết nối nhanh internet Free Swifi (UTC).
 - Chặn, xoá nhanh thành viên khỏi nhóm
+
+- API
+  - https://kipalog.com/posts/rss?api_key=sj64nlzx347bgv4b9qghopoxbcwmv6
