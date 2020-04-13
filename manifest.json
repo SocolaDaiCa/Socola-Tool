@@ -65,5 +65,6 @@
 	/*cho phép chạy các script bên ngoài bất chấp nguy hiểm      'https://code.jquery.com/jquery.js'  */
 	// "content_security_policy": "script-src 'self' 'unsafe-eval' 'http://localhost:35729/livereload.js'; object-src 'self'"
 	// "content_security_policy": "style-src 'self' data: chrome-extension-resource: 'unsafe-inline';"
+	//
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

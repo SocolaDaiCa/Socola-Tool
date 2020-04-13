@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <title></title>
+    <link rel="stylesheet" href="../css/get-movie-info.css">
+</head>
+
+<body>
+    <div id="app">
+        <iframe src="https://www.imdb.com/find?ref_=nv_sr_fn&q=Birth.of.the.Dragon.2017.ViE.720p.WEB-DL.DD5.1.H264-FGT&s=all" id="iframe-search-imdb"></iframe>
+        sss
+        <!-- <input type="search" name="movie_name" placeholder="" value="Birth.of.the.Dragon.2017.ViE.720p.WEB-DL.DD5.1.H264-FGT"> -->
+        {{name}}
+        <button type="button" id="btn-search">Search</button>
+        <button type="button" id="btn-inject-script">inject script</button>
+    </div>
+    <script src="../vendor/vue/vue.min.js"></script>
+    <script src="../js/get-movie-info.js"></script>
+</body>
+
+</html>
